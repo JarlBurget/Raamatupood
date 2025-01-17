@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
             res.render('shop/shop', { // Lisa "shop/" alamkausta nimi
                 products: rows,
                 pageTitle: 'Raamatupood',
-                path: '/' 
+                path: '/' // Aktiivne link on / (Shop)
             });
         })
         .catch(err => console.log(err));
@@ -22,7 +22,7 @@ router.get('/cart', (req, res, next) => {
             res.render('shop/cart', { // Lisa "shop/" alamkausta nimi
                 products: rows,
                 pageTitle: 'Cart',
-                path: '/cart' 
+                path: '/cart' // Aktiivne link on /cart
             });
         })
         .catch(err => console.log(err));
