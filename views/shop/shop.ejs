@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>   
+<body>
+    <%- include('../includes/navigation.ejs') %>   
+    <main>
+        <div class="products">
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <h1><%= product.title %></h1>
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3>$<%= product.price %></h3>
+                    <p><%= product.description %></p>
+                    <button>Add to Cart</button>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+</body>
+<%- include('../includes/footer.ejs') %>   
+</html>

@@ -30,10 +30,22 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
+/* Hover efekt */
 header nav ul li a:hover {
     color: yellow;
+    background-color: #006c4d; /* Tumeroheline hover efekt */
+}
+/* Aktiivne link - muutke teksti kollaseks */
+header nav ul li a.active {
+    color: yellow; /* Kollane tekst aktiivsel lingil */
+}
+/* Aktiivne link navbaris */
+header nav ul li a.active {
+    color: yellow; /* Teksti värv kollaseks aktiivsel lingil */
 }
 
 /* Product container */
@@ -87,6 +99,15 @@ button {
     font-size: 1rem;
 }
 
+
 button:hover {
     background-color: #06b194;
+}
+/*footer*/
+footer {
+    background-color: #017763;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 }
