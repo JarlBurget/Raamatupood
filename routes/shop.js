@@ -28,4 +28,13 @@ router.get('/cart', (req, res, next) => {
         .catch(err => console.log(err));
 });
 
+
+const shopController = require('../controllers/shop.js');
+const { route } = require('./admin');
+
+router.get('/', shopController.getProducts);
+router.get('/products/:productId', shopController.getProductDetails);
+router.get('/products', shopController.getProductsList)
+
+
 module.exports = router;

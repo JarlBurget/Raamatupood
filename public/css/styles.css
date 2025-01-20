@@ -1,11 +1,11 @@
 /* General reset */
 html, body {
-    height: 100%; /* Ensures the body and html take full height */
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    flex-direction: column; /* Align items in a column */
+    flex-direction: column;
 }
 
 /* Navigation bar */
@@ -25,81 +25,98 @@ header nav ul {
     padding: 0;
 }
 
+header nav ul li {
+    margin: 0;
+}
+
 header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect */
 header nav ul li a:hover {
-    color: yellow;
     background-color: #006c4d;
-}
-
-header nav ul li a.active {
     color: yellow;
 }
 
-/* Main content area (makes the content stretch) */
+/* Main content area */
 main {
-    flex-grow: 1; /* Makes the main content grow to fill available space */
+    flex-grow: 1;
     padding: 2rem;
 }
 
-/* Product container */
+/* Product list container */
 .products {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
     flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
+/* Individual product card */
 .product {
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    width: 250px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.15s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 250px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
 .product:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .product img {
     width: 100%;
+    height: auto;
     border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.product h1, .product h2, .product h3 {
+    margin: 0.5rem 0;
+}
+
+.product h1 {
+    font-size: 1.5rem;
 }
 
 .product h3 {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
+    color: #017763;
 }
 
-button {
-    background-color: #ffffff;
-    color: #004d40;
-    border-color: #017763;
+.product p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+.product a, .product button {
+    text-decoration: none;
+    background-color: #017763;
+    color: white;
     padding: 0.5rem 1rem;
+    border: none;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
     margin-top: auto;
 }
 
-button:hover {
-    color: white;
-    background-color: #017763;
+.product a:hover, .product button:hover {
+    background-color: #005a39;
 }
 
 /* Footer */
@@ -110,4 +127,95 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .products {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .product {
+        width: 90%;
+    }
+}
+
+.product-detail {
+    max-width: 400px; /* Vähendatud poole võrra */
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-detail .product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.75rem; /* Poole väiksem vahe */
+    border-radius: 8px;
+}
+
+.product-detail h1, 
+.product-detail h2 {
+    font-size: 2rem; /* Poole väiksem font */
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.product-detail .price {
+    font-size: 1rem; /* Poole väiksem font */
+    font-weight: bold;
+    color: #006c4d;
+    margin: 0.5rem 0;
+}
+
+.product-detail .description {
+    font-size: 0.75rem; /* Poole väiksem font */
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.product-detail .actions {
+    display: flex;
+    gap: 0.5rem; /* Väiksem vahe */
+    justify-content: center;
+}
+
+.product-detail button {
+    background-color: #017763;
+    color: #ffffff;
+    border: none;
+    padding: 0.375rem 0.75rem; /* Väiksemad mõõtmed */
+    border-radius: 4px;
+    font-size: 0.875rem; /* Väiksem font */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-detail button:hover {
+    background-color: #015a4c;
+}
+
+.product-detail .back-link {
+    color: #017763;
+    text-decoration: none;
+    font-size: 0.875rem; /* Väiksem font */
+    padding: 0.375rem 0.75rem; /* Väiksemad mõõtmed */
+    border: 1px solid #017763;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-detail .back-link:hover {
+    background-color: #017763;
+    color: #ffffff;
 }
