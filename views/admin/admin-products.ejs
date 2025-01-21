@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>   
+<body>
+    <%- include('../includes/navigation.ejs') %>   
+    <main>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.title %></td>
+                    <td><%= product.price %></td>
+                    <td>
+                        <a href="/admin/edit-product/<%= product.id %>">Edit</a>
+                        <form action="/admin/delete-product/<%= product.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</main>
+</body>
+<%- include('../includes/footer.ejs') %>   
+</html>
+
