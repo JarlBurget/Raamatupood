@@ -9,7 +9,10 @@
                     <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                     <h3>$<%= product.price %></h3>
                     <p><%= product.description %></p>
-                    <button>Add to Cart</button>
+                    <form method="post" action="/cart">
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                        <input type="submit" value="Add to Cart">
+                    </form>
                 </div>
             <% }); %>
         </div>

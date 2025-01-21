@@ -2,23 +2,21 @@
 <body>
     <%- include('../includes/navigation.ejs') %>
     <main>
-        <% const prod = products %>
-        <% if (prod.length > 0) { %>
-            <ul class="cart__item-list">
-                <% prod.forEach(p => { %>
-                    <li class="cart__item">
-                        <h1><%= p.title %></h1>
-                        <h2>Quantity: <%= p.quantity %></h2>
-                        <form action="/cart-delete-item" method="POST">
-                            <input type="hidden" value="<%= p.id %>" name="productId">
-                            <button class="btn danger" type="submit">Delete</button>
-                        </form>
-                    </li> 
-                <% }) %>
-            </ul> 
-        <% } else { %>
-            <h1>No Products in Cart</h1>
-        <% } %>
+        <div class="products">
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <h1><%= product.title %></h1>
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    <h3>$<%= product.price %></h3>
+                    <p><%= product.description %></p>
+                    <form action="/cart/add" method="POST">
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                        <p><%= product.quantity %> </p> 
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
     </main>
-    <%- include('../includes/footer.ejs') %>
 </body>
+<%- include('../includes/footer.ejs') %>
