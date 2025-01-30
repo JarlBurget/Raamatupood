@@ -7,13 +7,16 @@
                 <div class="product">
                     <h1><%= product.title %></h1>
                     <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
-                    <h3>$<%= product.price %></h3>
+                    <div class="product-info">
+                        <h3>$<%= product.price %></h3>
+                        <form method="post" action="/cart">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
                     <p><%= product.description %></p>
-                    <form method="post" action="/cart">
-                        <input type="hidden" name="productId" value="<%= product.id %>">
-                        <input type="submit" value="Add to Cart">
-                    </form>
                 </div>
+                
             <% }); %>
         </div>
     </main>

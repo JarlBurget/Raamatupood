@@ -1,33 +1,33 @@
-<%- include('../includes/head.ejs') %>   
+<%- include('../includes/head.ejs') %>
 <body>
-    <%- include('../includes/navigation.ejs') %>   
+    <%- include('../includes/navigation.ejs') %>
     <main>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% products.forEach(product => { %>
+        <table class="product-table">
+            <thead>
                 <tr>
-                    <td><%= product.title %></td>
-                    <td><%= product.price %></td>
-                    <td>
-                        <a href="/admin/edit-product/<%= product.id %>">Edit</a>
-                        <form action="/admin/delete-product/<%= product.id %>" method="POST" style="display:inline;">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Actions</th>
                 </tr>
-            <% }); %>
-        </tbody>
-    </table>
-</main>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="product-image"></td>
+                        <td><%= product.title %></td>
+                        <td><%= product.price %></td>
+                        <td>
+                            <a class="edit-link" href="/admin/edit-product/<%= product.id %>">Edit</a>
+                            <form action="/admin/delete-product/<%= product.id %>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <%- include('../includes/footer.ejs') %>
 </body>
-<%- include('../includes/footer.ejs') %>   
 </html>
-

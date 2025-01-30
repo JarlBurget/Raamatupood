@@ -52,4 +52,20 @@ router.post('/carts/remove/:id', cartController.removeFromCart)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
