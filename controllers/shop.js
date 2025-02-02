@@ -17,7 +17,7 @@ exports.getProductsList = (req, res, next) => {
             res.render('shop/product-list', {
                 products: rows,
                 pageTitle: 'Raamatupood',
-                path: '/product-list'
+                path: '/products'
             });
         })
         .catch(err => console.log(err));

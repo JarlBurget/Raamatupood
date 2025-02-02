@@ -3,18 +3,22 @@
     <%- include('../includes/navigation.ejs') %>   
     <main>
 <body>
-    <form action="/admin/edit-product" method="POST">
-        <input type="hidden" name="id" value="<%= product.id %>">
-        <label>Title</label>
-        <input type="text" name="title" value="<%= product.title %>" required>
-        <label>Image URL</label>
-        <input type="text" name="imageUrl" value="<%= product.imageUrl %>" required>
-        <label>Description</label>
-        <textarea name="description" required><%= product.description %></textarea>
-        <label>Price</label>
-        <input type="number" name="price" step="0.01" value="<%= product.price %>" required>
-        <button type="submit">Save Changes</button>
-    </form>
+    <div class="AP-design">
+        <div class="form-container">
+            <form action="/admin/edit-product" method="POST">
+                <input type="hidden" name="id" value="<%= product.id %>">
+                <label>Title</label>
+                <input type="text" name="title" value="<%= product.title %>" required>
+                <label>Image URL</label>
+                <input type="text" name="imageUrl" value="<%= product.imageUrl %>" required>
+                <label>Description</label>
+                <textarea name="description" required><%= product.description %></textarea>
+                <label>Price</label>
+                <input type="number" name="price" step="0.01" value="<%= product.price %>" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
 </main>
 </body>
 <%- include('../includes/footer.ejs') %>   

@@ -30,7 +30,7 @@ exports.getAdminProducts = async (req, res, next) => {
       const [products] = await db.execute('SELECT * FROM products');
       res.render('admin/admin-products', {
           pageTitle: 'Admin Products',
-          path: '/admin/admin-products',
+          path: '/admin/products',
           products: products,
       });
   } catch (err) {
